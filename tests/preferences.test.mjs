@@ -1,0 +1,3 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {safeSettings,validSession} from '../preferences.js';
+test('坏的备份不能产生越界续练或不支持的模式',()=>{assert.equal(validSession({ids:['a'],index:99,mode:'learn',elapsed:2},['a'],['learn']),false);assert.equal(validSession({ids:['a'],index:0,mode:'learn',elapsed:2},['a'],['learn']),true);assert.equal(validSession({ids:[],index:0,mode:'learn',elapsed:2},['a'],['learn']),false);});
+test('设置恢复忽略非法音色、字号和布尔值',()=>{const defaults={voice:'af_heart',size:38,theme:'dark',sound:true,keys:{play:'p'}};const r=safeSettings({voice:'bad',size:900,sound:'yes',theme:'light'},defaults);assert.equal(r.voice,'af_heart');assert.equal(r.size,38);assert.equal(r.sound,true);assert.equal(r.theme,'light');});

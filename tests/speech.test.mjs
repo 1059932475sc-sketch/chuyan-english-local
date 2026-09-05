@@ -1,0 +1,4 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {compareSpeech} from '../speech-score.js';import {sentences} from '../data.js';import {structures,wordInfo,detailedSentenceIds} from '../analysis-data.js';import {normalize} from '../engine.js';
+test('识别结果漏词、错词与多词明确标注',()=>{const r=compareSpeech('I like fresh apples.','I love apples now');assert.equal(r.words.filter(x=>x.status==='match').length,2);assert.ok(r.agreement<100);assert.equal(compareSpeech('I am Mia.','i am mia').agreement,100);assert.equal(compareSpeech('I am Mia.','').agreement,0);});
+test('每句的语法分组拼接必须还原原句',()=>{for(const s of sentences)assert.equal(normalize(structures[s.id].map(x=>x[1]).join(' ')),normalize(s.en),s.id);});
+test('精细讲解的入门课每个词均有音标和释义',()=>{for(const s of sentences.filter(s=>detailedSentenceIds.has(s.id)))for(const word of s.en.split(' ')){const info=wordInfo(word);assert.ok(info.ipa,word);assert.ok(info.meaning,word);}});
