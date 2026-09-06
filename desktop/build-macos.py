@@ -27,7 +27,7 @@ subprocess.run(['/usr/bin/swiftc', '-swift-version', '5', '-O', '-target', f'{pl
 info = {
     'CFBundleName': '初言英语', 'CFBundleDisplayName': '初言英语',
     'CFBundleIdentifier': 'com.firststeps.english.local', 'CFBundleExecutable': 'FirstSteps',
-    'CFBundlePackageType': 'APPL', 'CFBundleShortVersionString': '4.0.1', 'CFBundleVersion': '41',
+    'CFBundlePackageType': 'APPL', 'CFBundleShortVersionString': '4.0.2', 'CFBundleVersion': '42',
     'LSMinimumSystemVersion': '14.0', 'NSHighResolutionCapable': True,
     'NSHumanReadableCopyright': 'Independent local English learning application. Third-party licenses are included.',
 }
