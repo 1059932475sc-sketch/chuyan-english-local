@@ -16,3 +16,15 @@
 :root[data-theme=light] .path-hero{background:linear-gradient(135deg,#eaf7f7,#dff2f3);border-color:#b8dadd}:root[data-theme=light] .path-score{border-color:#b8dadd}:root[data-theme=light] .path-lesson,:root[data-theme=light] .choice-card{background:#f8fafb;border-color:#dbe4e9}:root[data-theme=light] .path-lesson.done{background:#eefaf3}:root[data-theme=light] .formula,:root[data-theme=light] .sound-block{background:#eaf4f5}:root[data-theme=light] .grammar-feedback{background:#eefaf3}:root[data-theme=light] .grammar-feedback.bad{background:#fff2ef}
 @media(max-width:850px){.path-hero{grid-template-columns:1fr;padding:28px}.path-score{border-left:0;border-top:1px solid #315158}.lesson-player{grid-template-columns:1fr}.human-rule,.challenge-card{padding:24px}.challenge-card{min-height:420px}.path-lessons{grid-template-columns:1fr}}
 @media(max-width:600px){.path-hero{padding:22px;border-radius:13px}.path-hero h1{font-size:27px}.path-score strong{font-size:39px}.path-intro{gap:6px}.path-unit>summary{grid-template-columns:39px 1fr auto;padding:15px 13px;gap:10px}.path-unit>summary b{font-size:15px}.path-unit>summary small{font-size:10px}.path-lessons{padding:8px 10px 14px}.path-lesson{grid-template-columns:26px 1fr auto;padding:13px 10px}.lesson-main{padding:17px 13px!important}.lesson-top{align-items:flex-start;gap:10px}.lesson-top>div{align-items:flex-start;flex-direction:column;gap:6px}.human-rule,.challenge-card{padding:20px 17px}.human-rule h1{font-size:22px}.challenge-card>h2{font-size:21px;margin-bottom:25px}.grammar-input-wrap{flex-direction:column;align-items:stretch;margin-top:20px}.grammar-answer{font-size:17px}.sound-block{font-size:15px;padding:9px 12px}.lesson-finish{padding:28px 17px;margin:15px auto}.finish-sentences article{grid-template-columns:1fr}.finish-sentences button{grid-column:1;grid-row:auto;justify-content:flex-start}.sentence-grammar-links{margin-bottom:20px}}
+
+/* V4.0.4 点词释义与主谓宾骨架 */
+.word-inline{display:inline;font:inherit;font-weight:inherit;color:inherit;padding:0 2px;border-radius:4px;vertical-align:baseline}
+.word-inline:hover,.word-inline:focus-visible{color:var(--accent);background:#173037}
+.role-strip{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;max-width:850px;margin:0 auto 18px}
+.role-strip span{display:inline-flex;align-items:center;gap:8px;border:1px solid #263137;background:#0c1114;border-radius:7px;padding:8px 11px;color:#aeb8be;font-size:13px}
+.role-strip b{color:var(--accent);font-size:11px;font-weight:650}
+.role-strip .role-word{font-size:13px}
+.dialogue-context .word-inline{font-size:13px}
+:root[data-theme=light] .word-inline:hover,:root[data-theme=light] .word-inline:focus-visible{background:#dff2f3}
+:root[data-theme=light] .role-strip span{background:#f8fafb;border-color:#dbe4e9;color:#40545e}
+@media(max-width:600px){.role-strip{gap:7px;margin-bottom:14px}.role-strip span{padding:7px 9px;font-size:12px}.role-strip .role-word{font-size:12px}}

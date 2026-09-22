@@ -13,7 +13,7 @@ const server=http.createServer(async(req,res)=>{try{
  if(![`localhost:${port}`,`127.0.0.1:${port}`].includes(req.headers.host)){json(res,403,{error:'仅允许本机访问'});return;}
  if(req.headers.origin&&!origins.has(req.headers.origin)){json(res,403,{error:'来源不允许'});return;}
  const name=new URL(req.url,`http://localhost:${port}`).pathname;
- if(name==='/api/health'&&req.method==='GET'){json(res,200,{app:'first-steps-english',version:'4.0.3',instance:process.env.FIRST_STEPS_INSTANCE||'project',offline:process.env.FIRST_STEPS_OFFLINE==='1',models:modelStatus(),learning:{units:17,lessons:90,exercises:540}});return;}
+ if(name==='/api/health'&&req.method==='GET'){json(res,200,{app:'first-steps-english',version:'4.0.4',instance:process.env.FIRST_STEPS_INSTANCE||'project',offline:process.env.FIRST_STEPS_OFFLINE==='1',models:modelStatus(),learning:{units:17,lessons:90,exercises:540}});return;}
  if(name==='/api/status'&&req.method==='GET'){json(res,200,modelStatus());return;}
  if(name==='/api/tts'&&req.method==='POST'){
   if(!req.headers['content-type']?.startsWith('application/json')){json(res,415,{error:'需要 JSON'});return;}
