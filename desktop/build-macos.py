@@ -17,7 +17,8 @@ macos = target / 'Contents/MacOS'
 resources = target / 'Contents/Resources'
 macos.mkdir(parents=True)
 resources.mkdir(parents=True)
-shutil.copytree(project, resources / 'web', symlinks=True, ignore=shutil.ignore_patterns('desktop', '.DS_Store'))
+shutil.copytree(project, resources / 'web', symlinks=True,
+                ignore=shutil.ignore_patterns('desktop', '.git', '.DS_Store', 'tests'))
 shutil.copy2(node, macos / 'node')
 build_cache = project.parent.parent / 'work/desktop-build/module-cache'
 build_cache.mkdir(parents=True, exist_ok=True)
@@ -33,6 +34,7 @@ info = {
 }
 with (target / 'Contents/Info.plist').open('wb') as f:
     plistlib.dump(info, f)
+(target / 'Contents/PkgInfo').write_text('APPL????')
 subprocess.run(['/usr/bin/codesign', '--force', '--deep', '--sign', '-', str(target)], check=True)
 subprocess.run(['/usr/bin/codesign', '--verify', '--deep', '--strict', str(target)], check=True)
 print(f'Built: {target}')
